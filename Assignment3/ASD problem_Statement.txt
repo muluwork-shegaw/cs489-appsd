@@ -1,0 +1,8 @@
+﻿* Register dentists and enroll patients by the office Manager
+* Allow patients to request for an Appointment
+* Dentist can see the list of the appointments they have
+* Allow the office manager to manage the appointments
+* Allow patients to cancel/change the appointments
+* Send the confirmation notification
+* Prevent patients from making more requests if they have unpaid bill or outstanding appointment
+* Allow patients to see the details of the surgery information
