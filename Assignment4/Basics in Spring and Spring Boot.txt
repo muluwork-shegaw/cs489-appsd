@@ -1,0 +1,24 @@
+﻿1. What is Spring?
+Spring is a framework for building Java applications. It provides comprehensive infrastructure support for developing Java applications, particularly enterprise applications. Example: Spring provides modules for data access, transaction management, security, and more, simplifying Java development and configuration.
+
+
+
+
+2. What is Spring Boot?
+Spring Boot is an extension of the Spring framework that simplifies the process of setting up and configuring Spring-based applications. It provides default configurations, embedded servers, and starter dependencies to streamline the development process. Example: With Spring Boot, you can create stand-alone, production-grade Spring-based applications with minimal configuration.
+
+
+3. What is the relation between Spring platform and Spring Boot?
+Spring Boot is built on top of the Spring platform. It leverages the features of the Spring framework to provide a convention-over-configuration approach for rapidly developing Spring applications. Example: Spring Boot automatically configures Spring applications, allowing developers to focus more on application logic rather than infrastructure setup.
+
+
+4. What is the relation between Spring platform and Spring framework?
+The Spring platform encompasses the entire Spring ecosystem, including the core Spring framework and its various extensions and projects, such as Spring Boot, Spring Data, Spring Security, etc. The Spring framework, on the other hand, is the core component of the Spring platform, providing foundational support for building Java applications. Example: Spring Boot, Spring Security, and other projects are built on top of the Spring framework.
+
+
+5. What is Dependency Injection and how is it done in the Spring platform/framework?
+Dependency Injection (DI) is a design pattern used to remove hard-coded dependencies between components in a system. In Spring, DI is achieved through inversion of control (IoC) containers, which manage the creation and injection of dependent objects into components. Example: In Spring, you declare dependencies in components using annotations or XML configuration, and the Spring container injects them at runtime.
+
+
+6. What is Inversion of Control (IoC) and how is it related to Spring?
+Inversion of Control (IoC) is a design principle where the control of object creation and lifecycle management is shifted from the application code to a container or framework. Spring implements IoC through its container, which manages the instantiation, configuration, and wiring of application objects. Example: Instead of creating objects directly in code, developers define bean configurations, and the Spring container instantiates and manages those beans at runtime.
