@@ -1,0 +1,9 @@
+﻿RentaCar - a Car Rental Management system
+
+
+The system will be utilized by rental agents to register new vehicles into the fleet, capturing essential details such as make, model, year, license plate number, rental rate, and availability status. Additionally, rental agents will manage customer bookings, recording customer information including name, contact details, rental period, and preferred vehicle specifications. Customers will have the option to browse available vehicles, select rental dates, and make reservations through the website. Upon reservation, customers will receive a confirmation email containing booking details.
+
+
+
+
+Rental agents will have access to a dashboard where they can view and manage vehicle inventory, track bookings, and process rental agreements. The system will enforce rental policies such as age restrictions and insurance requirements, ensuring compliance with company standards. Furthermore, the system will integrate with payment gateways to facilitate secure online transactions. Customers will have the ability to view their reservations, modify booking details, and make payments through their personalized accounts on the website. By providing a user-friendly interface and robust backend functionalities, the WheelsOn Car Rental Management System aims to enhance the rental experience for both customers and rental agents, driving efficiency and customer satisfaction.
