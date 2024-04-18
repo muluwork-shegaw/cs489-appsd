@@ -1,5 +1,7 @@
 package cs489.project.carrental.model.helperClass;
 
 public enum ReservationStatus {
-    ReservationStatus
+    cancel,
+    confirmed,
+    pending,
 }

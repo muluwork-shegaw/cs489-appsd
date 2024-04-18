@@ -1,6 +1,6 @@
 package cs489.project.carrental.repository;
 
-import cs489.project.carrental.model.Car;
+import cs489.project.carrental.model.domain.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CarRepository extends JpaRepository<Car, Long> {
