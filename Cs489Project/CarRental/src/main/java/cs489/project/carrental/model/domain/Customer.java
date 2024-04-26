@@ -1,11 +1,13 @@
 package cs489.project.carrental.model.domain;
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
+
 @Data
 @Entity
 public class Customer extends User {
@@ -16,10 +18,13 @@ public class Customer extends User {
 
     private String driverLicenceId;
 
-    @OneToOne
+    @ManyToOne
+    @NotNull
+    @JoinColumn(name = "badge_id")
     private Badge badge;
 
     @OneToMany(mappedBy = "customer")
+    @NotEmpty
     private List<Card> cards;
 
     @OneToMany(mappedBy = "customer")

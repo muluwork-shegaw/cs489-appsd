@@ -1,6 +1,5 @@
 package cs489.project.carrental.model.domain;
 
-import cs489.project.carrental.model.domain.Permission;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -37,13 +36,6 @@ public class Role {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @Column(
-            name = "deleted",
-            nullable = false,
-            columnDefinition = "boolean default false"
-    )
-    private Boolean deleted = false;
-
 
     @ManyToMany(
             fetch = FetchType.EAGER
@@ -53,5 +45,6 @@ public class Role {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
-  private List<Permission> permissions;
+    private List<Permission> permissions;
+    
 }

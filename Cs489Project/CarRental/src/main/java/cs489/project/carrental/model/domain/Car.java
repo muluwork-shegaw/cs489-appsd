@@ -5,14 +5,14 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
+
 @Data
 @Entity
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long carID;
+    private Long carID;
     private int year;
     private String licensePlate;
     private float rentalRate;
@@ -33,9 +33,5 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "branch_id")
     private Branch branch;
-
-    @OneToMany(mappedBy = "car")
-    private List<Review> reviewList;
-
 
 }

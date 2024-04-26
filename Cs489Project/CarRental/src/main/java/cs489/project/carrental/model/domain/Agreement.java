@@ -1,9 +1,7 @@
 package cs489.project.carrental.model.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -19,12 +17,15 @@ public class Agreement {
     private String policy;
 
     @OneToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToOne
+    @JoinColumn(name = "rentalAgent_id")
     private RentalAgent rentalAgent;
 
     @OneToOne
+    @JoinColumn(name = "reservation_id")
     private Reservation reservation;
 
     @Column(

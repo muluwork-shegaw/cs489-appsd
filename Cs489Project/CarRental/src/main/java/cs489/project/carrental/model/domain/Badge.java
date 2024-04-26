@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class Badge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String badgeID;
+    private Long badgeId;
 
     private String badgeName;
 

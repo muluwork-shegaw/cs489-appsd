@@ -1,19 +1,18 @@
 package cs489.project.carrental.model.domain;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 
-public class RentalAgent  extends User {
+public class RentalAgent extends User {
 
     @ManyToOne
+    @JoinColumn(name = "branch_id")
     private Branch branch;
-
-
 
 
 }

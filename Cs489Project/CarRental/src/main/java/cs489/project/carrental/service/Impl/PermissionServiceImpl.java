@@ -1,4 +1,4 @@
-package cs489.project.carrental.service.impl;
+package cs489.project.carrental.service.Impl;
 
 import cs489.project.carrental.model.domain.Permission;
 import cs489.project.carrental.repository.PermissionRepository;

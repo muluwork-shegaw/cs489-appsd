@@ -1,10 +1,12 @@
-package cs489.project.carrental.service.impl;
+package cs489.project.carrental.service.Impl;
 
 import cs489.project.carrental.model.domain.Customer;
 import cs489.project.carrental.repository.CustomerRepository;
 import cs489.project.carrental.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -25,5 +27,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
     }
 }

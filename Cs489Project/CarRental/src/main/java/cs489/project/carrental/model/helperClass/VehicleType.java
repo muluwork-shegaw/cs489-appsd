@@ -2,7 +2,7 @@ package cs489.project.carrental.model.helperClass;
 
 public enum VehicleType {
     SUV,
-    Sedan,
+    SEDAN,
 
-    Minivan,
+    MINIVAN,
 }

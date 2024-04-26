@@ -1,7 +1,6 @@
 package cs489.project.carrental.model.domain;
 
-import cs489.project.carrental.model.domain.Address;
-import cs489.project.carrental.model.domain.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,12 +36,6 @@ public abstract class User {
     )
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Role> roles = new ArrayList<>();
-
-    public void addRole(Role role) {
-        roles.add(role);
-    }
 
     @Column(
             name = "created_at",
@@ -50,19 +43,24 @@ public abstract class User {
     )
     @CreationTimestamp
     private LocalDateTime createdAt;
-
     @Column(
             name = "updated_at",
             nullable = false
     )
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-
     @Column(
             name = "deleted",
             nullable = false,
             columnDefinition = "boolean default false"
     )
     private Boolean deleted = false;
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Role> roles = new ArrayList<>();
+
+    public void addRole(Role role) {
+        roles.add(role);
+    }
 
 }

@@ -2,7 +2,7 @@ package cs489.project.carrental.controller;
 
 import cs489.project.carrental.DTO.VehicleDto;
 import cs489.project.carrental.service.VehicleService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +13,13 @@ import java.util.List;
 @RequestMapping("/vehicles")
 public class VehicleController {
 
-    @Autowired
+    ModelMapper modelMapper;
     private VehicleService vehicleService;
+
+    VehicleController(VehicleService vehicleService, ModelMapper modelMapper) {
+        this.vehicleService = vehicleService;
+        this.modelMapper = modelMapper;
+    }
 
 
     @PostMapping("/register")

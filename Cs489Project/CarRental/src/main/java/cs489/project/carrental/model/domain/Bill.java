@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+
 @Data
 @Entity
 public class Bill {
@@ -19,11 +20,14 @@ public class Bill {
 
 
     @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
 
     @OneToOne
+    @JoinColumn(name = "reservation_id")
     private Reservation reservation;
+
     @Column(
             name = "created_at",
             nullable = false
@@ -37,7 +41,6 @@ public class Bill {
     )
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-
 
 
 }
