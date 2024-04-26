@@ -1,9 +1,11 @@
 package cs489.project.carrental.service;
 
-import cs489.project.carrental.DTO.UserDto;
+import cs489.project.carrental.DTO.User.BasicUserDto;
+import cs489.project.carrental.DTO.User.UserDto;
 import cs489.project.carrental.model.domain.User;
 
 import java.util.List;
+
 
 public interface UserService {
     List<User> getAllUsers();
@@ -17,11 +19,14 @@ public interface UserService {
     void deleteUser(Long id);
 
 
-    UserDto getCurrentUser();
+    BasicUserDto getCurrentUser();
 
     List<User> getRecentUsers(Integer limit);
 
     User setRole(Long id, List<Long> roleIds);
 
-    UserDto getUserByID(Long id);
+    BasicUserDto getUserByID(Long id);
+
+    User getUserByEmail(String email);
 }
+

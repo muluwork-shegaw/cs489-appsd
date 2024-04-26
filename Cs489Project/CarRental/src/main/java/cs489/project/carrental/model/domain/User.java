@@ -13,7 +13,8 @@ import java.util.List;
 @Entity
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class User {
+
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -54,10 +55,12 @@ public abstract class User {
             nullable = false,
             columnDefinition = "boolean default false"
     )
-    private Boolean deleted = false;
+    private Boolean deleted = Boolean.FALSE;
+
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles = new ArrayList<>();
+
 
     public void addRole(Role role) {
         roles.add(role);

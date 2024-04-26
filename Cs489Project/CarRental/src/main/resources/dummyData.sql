@@ -15,7 +15,7 @@ VALUES ('bronze', NOW(), NOW()),
        ('platinum', NOW(), NOW());
 
 INSERT INTO permission (deleted, created_at, updated_at, name)
-VALUES (0, NOW(), NOW(), 'canCreateVehicle'),
+VALUES (0, NOW(), NOW(), 'all'),
        (0, NOW(), NOW(), 'canReadVehicle'),
        (0, NOW(), NOW(), 'canUpdateVehicle'),
        (0, NOW(), NOW(), 'canDeleteVehicle'),
@@ -43,7 +43,7 @@ VALUES ('admin', NOW(), NOW()),
 INSERT INTO role_permission (role_id, permission_id)
 VALUES
     -- Admin Permissions
-    ((SELECT id FROM role WHERE name = 'admin'), (SELECT id FROM permission WHERE name = 'canCreateVehicle')),
+    ((SELECT id FROM role WHERE name = 'admin'), (SELECT id FROM permission WHERE name = 'all')),
     ((SELECT id FROM role WHERE name = 'admin'), (SELECT id FROM permission WHERE name = 'canReadVehicle')),
     ((SELECT id FROM role WHERE name = 'admin'), (SELECT id FROM permission WHERE name = 'canUpdateVehicle')),
     ((SELECT id FROM role WHERE name = 'admin'), (SELECT id FROM permission WHERE name = 'canDeleteVehicle')),
@@ -92,16 +92,26 @@ VALUES ('Downtown Branch', 'DL-001', 1, NOW(), NOW()),
        ('Southside Branch', 'DL-005', 5, NOW(), NOW());
 -- Insert 10 dummy customers
 INSERT INTO user (f_name, l_name, phone_number, address_address_id, email, password, created_at, updated_at, deleted)
-VALUES ('John', 'Doe', '1234567890', 1, 'john.doe@example.com', 'password123', NOW(), NOW(), false),
-       ('Alice', 'Smith', '9876543210', 2, 'alice.smith@example.com', 'p@ssw0rd', NOW(), NOW(), false),
-       ('Bob', 'Johnson', '5551234567', 3, 'bob.johnson@example.com', 'securepwd', NOW(), NOW(), false),
-       ('Emily', 'Davis', '4449998888', 4, 'emily.davis@example.com', 'mysecret', NOW(), NOW(), false),
-       ('Michael', 'Brown', '7771112222', 5, 'michael.brown@example.com', '12345678', NOW(), NOW(), false),
-       ('Sophia', 'Wilson', '3334445555', 6, 'sophia.wilson@example.com', 'pass1234', NOW(), NOW(), false),
-       ('David', 'Lee', '6667778888', 7, 'david.lee@example.com', 'david123', NOW(), NOW(), false),
-       ('Emma', 'Clark', '2223334444', 8, 'emma.clark@example.com', 'password', NOW(), NOW(), false),
-       ('Olivia', 'Anderson', '9998887777', 9, 'olivia.anderson@example.com', 'testpwd', NOW(), NOW(), false),
-       ('James', 'Moore', '1112223333', 10, 'james.moore@example.com', 'jamespwd', NOW(), NOW(), false);
+VALUES ('John', 'Doe', '1234567890', 1, 'john.doe@example.com',
+        '$2a$10$5SqQl/ryv0cliS7RUB1Wy.GIJSLbKoSIaH4Kbhpddh54ARIhUOtde', NOW(), NOW(), false),
+       ('Alice', 'Smith', '9876543210', 2, 'alice.smith@example.com',
+        '$2a$10$sNEm0ZW6xJT/LoSn5w1PVu9x/Hz9vdfl/y461sH29RAMALuMkZAa2', NOW(), NOW(), false),
+       ('Bob', 'Johnson', '5551234567', 3, 'bob.johnson@example.com',
+        '$2a$10$NXdYSBv41R8OpDM4USc6Wu9/dKlKtEy/awucEe3mRMG854IfjR0KO', NOW(), NOW(), false),
+       ('Emily', 'Davis', '4449998888', 4, 'emily.davis@example.com',
+        '$2a$10$sNEm0ZW6xJT/LoSn5w1PVu9x/Hz9vdfl/y461sH29RAMALuMkZAa2', NOW(), NOW(), false),
+       ('Michael', 'Brown', '7771112222', 5, 'michael.brown@example.com',
+        '$2a$10$NXdYSBv41R8OpDM4USc6Wu9/dKlKtEy/awucEe3mRMG854IfjR0KO', NOW(), NOW(), false),
+       ('Sophia', 'Wilson', '3334445555', 6, 'sophia.wilson@example.com',
+        '$2a$10$sNEm0ZW6xJT/LoSn5w1PVu9x/Hz9vdfl/y461sH29RAMALuMkZAa2', NOW(), NOW(), false),
+       ('David', 'Lee', '6667778888', 7, 'david.lee@example.com',
+        '$2a$10$NXdYSBv41R8OpDM4USc6Wu9/dKlKtEy/awucEe3mRMG854IfjR0KO', NOW(), NOW(), false),
+       ('Emma', 'Clark', '2223334444', 8, 'emma.clark@example.com',
+        '$2a$10$sNEm0ZW6xJT/LoSn5w1PVu9x/Hz9vdfl/y461sH29RAMALuMkZAa2', NOW(), NOW(), false),
+       ('Olivia', 'Anderson', '9998887777', 9, 'olivia.anderson@example.com',
+        '$2a$10$NXdYSBv41R8OpDM4USc6Wu9/dKlKtEy/awucEe3mRMG854IfjR0KO', NOW(), NOW(), false),
+       ('James', 'Moore', '1112223333', 10, 'james.moore@example.com',
+        '$2a$10$sNEm0ZW6xJT/LoSn5w1PVu9x/Hz9vdfl/y461sH29RAMALuMkZAa2', NOW(), NOW(), false);
 
 -- Insert 10 customers with additional details
 INSERT INTO customer (id, dob, driver_licence_id, badge_id)
@@ -259,3 +269,8 @@ SELECT NOW()                                                AS local_date_time,
        NOW()                                                AS updated_at
 FROM reservation r
 WHERE r.reservation_status = 'CONFIRMED';
+
+INSERT INTO user_roles (user_id, roles_id)
+VALUES (1, 1), -- Assuming 1 is the ID of the first role you want to assign
+       (1, 2), -- Assuming 2 is the ID of the second role
+       (1, 3); -- Assuming 3 is the ID of the third role

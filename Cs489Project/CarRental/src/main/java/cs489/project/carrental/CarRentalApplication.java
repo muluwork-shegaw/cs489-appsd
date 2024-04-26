@@ -1,23 +1,33 @@
 package cs489.project.carrental;
 
-import cs489.project.carrental.DTO.VehicleDto;
-import cs489.project.carrental.model.domain.Vehicle;
-import cs489.project.carrental.model.helperClass.VehicleType;
 import cs489.project.carrental.service.VehicleService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-public class CarRentalApplication  {
-     private VehicleService vehicleService;
+public class CarRentalApplication implements CommandLineRunner {
+    private VehicleService vehicleService;
 
     public static void main(String[] args) {
         SpringApplication.run(CarRentalApplication.class, args);
 
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        String password1 = "password123";
+        String hashedPassword1 = encoder.encode(password1);
+
+        String password2 = "p@ssw0rd";
+        String hashedPassword2 = encoder.encode(password2);
+
+        // Print out the hashed passwords
+        System.out.println("Hashed Password 1: " + hashedPassword1);
+        System.out.println("Hashed Password 2: " + hashedPassword2);
     }
 
 //    @Override

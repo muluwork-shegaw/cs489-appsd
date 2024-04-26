@@ -1,4 +1,4 @@
-package cs489.project.carrental.DTO;
+package cs489.project.carrental.DTO.User;
 
 
 import lombok.Data;
@@ -9,5 +9,8 @@ public class UserDto {
     private String lName;
     private String email;
     private String phoneNumber;
+    private String password;
+
+
 }
 
