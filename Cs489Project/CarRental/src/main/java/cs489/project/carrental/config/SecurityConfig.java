@@ -46,8 +46,6 @@ public class SecurityConfig {
                                 .requestMatchers("/reservations/*").hasAuthority("all")
                                 .requestMatchers("/vehicles/*").hasAuthority("all")
                                 .requestMatchers("/users/*").hasAuthority("all")
-
-
                                 .anyRequest()
                                 .authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS));

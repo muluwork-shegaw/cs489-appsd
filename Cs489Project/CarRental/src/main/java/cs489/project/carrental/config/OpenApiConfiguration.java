@@ -22,7 +22,7 @@ public class OpenApiConfiguration {
                 .info(
                         new Info()
                                 .title("Car Rental Mgmt API")
-                                .description("Car Rental Mgmt API")
+                                .description("Car Rental Managment API")
                                 .version("1.0")
                 )
                 .addServersItem(new Server().url("http://localhost:8080"))
