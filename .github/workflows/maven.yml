@@ -46,9 +46,8 @@ jobs:
       mysql:
         image: mysql
         env:
-          MYSQL_DB: CarRental_db
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root_2112
+          MYSQL_DATABASE: CarRental_db
+          MYSQL_ROOT_PASSWORD: root_2112
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -79,6 +78,7 @@ jobs:
     - name: Build with Maven
       run: |
           ls -lah
+          
           mvn -B package --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
