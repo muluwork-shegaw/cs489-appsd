@@ -43,12 +43,12 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      postgres:
+      mysql:
         image: mysql
         env:
-          POSTGRES_DB: CarRental_db
-          POSTGRES_USER: root
-          POSTGRES_PASSWORD: root_2112
+          MYSQL_DB: CarRental_db
+          MYSQL_USER: root
+          MYSQL_PASSWORD: root_2112
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
